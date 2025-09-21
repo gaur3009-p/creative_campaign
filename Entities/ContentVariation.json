@@ -1,0 +1,95 @@
+{
+  "name": "ContentVariation",
+  "type": "object",
+  "properties": {
+    "campaign_brief_id": {
+      "type": "string",
+      "description": "Associated campaign brief ID"
+    },
+    "variation_type": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "description": "Variation identifier"
+    },
+    "headline": {
+      "type": "string",
+      "description": "Generated headline text"
+    },
+    "subheadline": {
+      "type": "string",
+      "description": "Supporting text"
+    },
+    "cta_text": {
+      "type": "string",
+      "description": "Call-to-action text"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Generated image URL"
+    },
+    "image_prompt": {
+      "type": "string",
+      "description": "Prompt used to generate the image"
+    },
+    "design_elements": {
+      "type": "object",
+      "properties": {
+        "color_scheme": {
+          "type": "string"
+        },
+        "layout_style": {
+          "type": "string"
+        },
+        "typography": {
+          "type": "string"
+        }
+      }
+    },
+    "performance_prediction": {
+      "type": "object",
+      "properties": {
+        "predicted_ctr": {
+          "type": "number"
+        },
+        "engagement_score": {
+          "type": "number"
+        },
+        "conversion_score": {
+          "type": "number"
+        },
+        "brand_fit_score": {
+          "type": "number"
+        }
+      }
+    },
+    "actual_performance": {
+      "type": "object",
+      "properties": {
+        "impressions": {
+          "type": "number"
+        },
+        "clicks": {
+          "type": "number"
+        },
+        "conversions": {
+          "type": "number"
+        },
+        "engagement_rate": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "required": [
+    "campaign_brief_id",
+    "variation_type",
+    "headline",
+    "cta_text"
+  ]
+}
