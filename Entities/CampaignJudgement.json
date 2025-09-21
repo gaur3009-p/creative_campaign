@@ -1,0 +1,191 @@
+{
+  "name": "CampaignJudgement",
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "description": "Associated campaign ID"
+    },
+    "judge_type": {
+      "type": "string",
+      "enum": [
+        "ai_bot",
+        "human_survey"
+      ],
+      "description": "Type of judgement source"
+    },
+    "judge_bot_analysis": {
+      "type": "object",
+      "properties": {
+        "overall_effectiveness_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "visual_appeal_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "message_clarity_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "target_relevance_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "cta_strength_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "brand_consistency_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "detailed_feedback": {
+          "type": "string"
+        },
+        "improvement_recommendations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "competitive_analysis": {
+          "type": "string"
+        },
+        "predicted_performance": {
+          "type": "object",
+          "properties": {
+            "estimated_ctr": {
+              "type": "number"
+            },
+            "estimated_conversion_rate": {
+              "type": "number"
+            },
+            "audience_engagement_likelihood": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            },
+            "viral_potential": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "survey_responses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "respondent_email": {
+            "type": "string"
+          },
+          "respondent_demographics": {
+            "type": "object"
+          },
+          "rating_scores": {
+            "type": "object",
+            "properties": {
+              "overall_appeal": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 10
+              },
+              "message_clarity": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 10
+              },
+              "likelihood_to_engage": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 10
+              },
+              "visual_attractiveness": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 10
+              }
+            }
+          },
+          "written_feedback": {
+            "type": "string"
+          },
+          "suggestions": {
+            "type": "string"
+          },
+          "target_match": {
+            "type": "boolean"
+          },
+          "response_timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "aggregated_results": {
+      "type": "object",
+      "properties": {
+        "final_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "total_responses": {
+          "type": "number"
+        },
+        "confidence_level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "key_insights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "action_items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "requires_action"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "campaign_id",
+    "judge_type"
+  ]
+}
