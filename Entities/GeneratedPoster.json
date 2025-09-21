@@ -1,0 +1,76 @@
+{
+  "name": "GeneratedPoster",
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "description": "Associated campaign ID"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Generated poster image URL"
+    },
+    "cta_text": {
+      "type": "string",
+      "description": "Call-to-action text overlaid on poster"
+    },
+    "cta_position": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        }
+      },
+      "description": "CTA positioning on poster"
+    },
+    "cta_style": {
+      "type": "object",
+      "properties": {
+        "background_color": {
+          "type": "string"
+        },
+        "text_color": {
+          "type": "string"
+        },
+        "font_size": {
+          "type": "string"
+        },
+        "border_radius": {
+          "type": "string"
+        },
+        "padding": {
+          "type": "string"
+        }
+      }
+    },
+    "poster_variant": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C"
+      ],
+      "description": "Poster variant identifier"
+    },
+    "design_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "AI-assessed design quality score"
+    }
+  },
+  "required": [
+    "campaign_id",
+    "image_url",
+    "cta_text"
+  ]
+}
