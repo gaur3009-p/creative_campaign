@@ -1,0 +1,71 @@
+{
+  "name": "Campaign",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Campaign name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Campaign description"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "paused",
+        "completed"
+      ],
+      "default": "draft"
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Target audience description"
+    },
+    "objectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Campaign objectives"
+    },
+    "budget": {
+      "type": "number",
+      "description": "Campaign budget"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "performance_metrics": {
+      "type": "object",
+      "properties": {
+        "impressions": {
+          "type": "number"
+        },
+        "clicks": {
+          "type": "number"
+        },
+        "ctr": {
+          "type": "number"
+        },
+        "conversions": {
+          "type": "number"
+        },
+        "cost_per_click": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "target_audience"
+  ]
+}
