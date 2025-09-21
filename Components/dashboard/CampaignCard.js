@@ -38,4 +38,22 @@ export default function CampaignCard({ campaign }) {
             </div>
             
             <div className="flex items-center justify-between">
- 
+                <div className="text-sm">
+                    <span className="text-slate-400">Budget: </span>
+                    <span className="font-medium text-white">${(campaign.budget || 0).toLocaleString()}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                     {campaign.status === 'active' ? (
+                        <Button size="sm" variant="outline" className="gap-1 bg-yellow-500/10 border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/20">
+                            <Pause className="w-3 h-3" /> Pause
+                        </Button>
+                    ) : (
+                        <Button size="sm" variant="outline" className="gap-1 bg-green-500/10 border-green-500/50 text-green-300 hover:bg-green-500/20">
+                            <Play className="w-3 h-3" /> Start
+                        </Button>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
