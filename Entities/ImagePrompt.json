@@ -1,0 +1,49 @@
+{
+  "name": "ImagePrompt",
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "description": "Associated campaign ID"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Image generation prompt"
+    },
+    "style": {
+      "type": "string",
+      "enum": [
+        "photographic",
+        "illustration",
+        "abstract",
+        "minimalist",
+        "corporate"
+      ],
+      "default": "photographic"
+    },
+    "generated_image_url": {
+      "type": "string",
+      "description": "URL of generated image"
+    },
+    "dimensions": {
+      "type": "string",
+      "enum": [
+        "square",
+        "landscape",
+        "portrait"
+      ],
+      "default": "square"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Image tags"
+    }
+  },
+  "required": [
+    "campaign_id",
+    "prompt"
+  ]
+}
