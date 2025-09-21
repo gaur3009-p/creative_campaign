@@ -1,0 +1,143 @@
+{
+  "name": "CampaignBrief",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Campaign title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Campaign description and goals"
+    },
+    "target_age_group": {
+      "type": "string",
+      "enum": [
+        "18-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55-64",
+        "65+"
+      ],
+      "description": "Primary target age group"
+    },
+    "target_demographics": {
+      "type": "object",
+      "properties": {
+        "gender": {
+          "type": "string",
+          "enum": [
+            "all",
+            "male",
+            "female",
+            "non-binary"
+          ]
+        },
+        "income_level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "middle",
+            "high",
+            "premium"
+          ]
+        },
+        "interests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "main_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key terms and phrases for the campaign"
+    },
+    "campaign_type": {
+      "type": "string",
+      "enum": [
+        "product_launch",
+        "brand_awareness",
+        "seasonal",
+        "promotional",
+        "educational",
+        "event"
+      ],
+      "description": "Type of campaign"
+    },
+    "content_preferences": {
+      "type": "object",
+      "properties": {
+        "image_style": {
+          "type": "string",
+          "enum": [
+            "photographic",
+            "illustration",
+            "minimalist",
+            "bold_graphic",
+            "lifestyle",
+            "product_focus"
+          ]
+        },
+        "tone": {
+          "type": "string",
+          "enum": [
+            "professional",
+            "casual",
+            "playful",
+            "urgent",
+            "inspirational",
+            "authoritative"
+          ]
+        },
+        "color_palette": {
+          "type": "string",
+          "enum": [
+            "vibrant",
+            "muted",
+            "monochrome",
+            "brand_colors",
+            "seasonal"
+          ]
+        },
+        "text_length": {
+          "type": "string",
+          "enum": [
+            "short_punchy",
+            "medium_descriptive",
+            "long_detailed"
+          ]
+        }
+      }
+    },
+    "success_metrics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "clicks",
+          "conversions",
+          "brand_awareness",
+          "engagement",
+          "lead_generation",
+          "sales"
+        ]
+      }
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "target_age_group",
+    "main_keywords",
+    "campaign_type"
+  ]
+}
