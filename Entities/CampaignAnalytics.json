@@ -1,0 +1,77 @@
+{
+  "name": "CampaignAnalytics",
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "description": "Associated campaign ID"
+    },
+    "overall_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Campaign effectiveness score (0-1)"
+    },
+    "copy_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Ad script quality score"
+    },
+    "design_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Visual design effectiveness score"
+    },
+    "cta_effectiveness": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Call-to-action effectiveness score"
+    },
+    "iteration_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of improvement iterations"
+    },
+    "improvement_suggestions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "AI-generated improvement suggestions"
+    },
+    "performance_metrics": {
+      "type": "object",
+      "properties": {
+        "engagement_rate": {
+          "type": "number"
+        },
+        "conversion_rate": {
+          "type": "number"
+        },
+        "brand_lift": {
+          "type": "number"
+        },
+        "sentiment_score": {
+          "type": "number"
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "analyzing",
+        "needs_improvement",
+        "approved",
+        "finalized"
+      ],
+      "default": "analyzing"
+    }
+  },
+  "required": [
+    "campaign_id",
+    "overall_score"
+  ]
+}
