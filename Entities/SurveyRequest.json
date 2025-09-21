@@ -1,0 +1,88 @@
+{
+  "name": "SurveyRequest",
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "description": "Associated campaign ID"
+    },
+    "survey_title": {
+      "type": "string",
+      "description": "Title of the survey"
+    },
+    "recipient_emails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of email addresses to send survey to"
+    },
+    "survey_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "rating",
+              "text",
+              "multiple_choice",
+              "boolean"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "survey_instructions": {
+      "type": "string",
+      "description": "Instructions for survey participants"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Survey response deadline"
+    },
+    "incentive_offered": {
+      "type": "string",
+      "description": "Any incentives offered to participants"
+    },
+    "sent_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "responses_received": {
+      "type": "number",
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent",
+        "collecting",
+        "completed",
+        "expired"
+      ],
+      "default": "draft"
+    }
+  },
+  "required": [
+    "campaign_id",
+    "survey_title",
+    "recipient_emails"
+  ]
+}
