@@ -1,0 +1,72 @@
+{
+  "name": "CopyVariant",
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "description": "Associated campaign ID"
+    },
+    "headline": {
+      "type": "string",
+      "description": "Ad headline"
+    },
+    "body_text": {
+      "type": "string",
+      "description": "Ad body text"
+    },
+    "call_to_action": {
+      "type": "string",
+      "description": "Call to action text"
+    },
+    "tone": {
+      "type": "string",
+      "enum": [
+        "professional",
+        "casual",
+        "urgent",
+        "friendly",
+        "authoritative"
+      ],
+      "default": "professional"
+    },
+    "predicted_ctr": {
+      "type": "number",
+      "description": "ML-predicted click-through rate"
+    },
+    "confidence_score": {
+      "type": "number",
+      "description": "Confidence in prediction"
+    },
+    "variant_type": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C"
+      ],
+      "default": "A"
+    },
+    "performance_data": {
+      "type": "object",
+      "properties": {
+        "actual_ctr": {
+          "type": "number"
+        },
+        "impressions": {
+          "type": "number"
+        },
+        "clicks": {
+          "type": "number"
+        },
+        "conversions": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "required": [
+    "campaign_id",
+    "headline",
+    "body_text"
+  ]
+}
