@@ -1,0 +1,69 @@
+{
+  "name": "ResearchPaper",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Research paper title"
+    },
+    "abstract": {
+      "type": "string",
+      "description": "Paper abstract"
+    },
+    "content": {
+      "type": "string",
+      "description": "Markdown content of the paper"
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of authors"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Research tags"
+    },
+    "experiment_config": {
+      "type": "object",
+      "properties": {
+        "model_name": {
+          "type": "string"
+        },
+        "hyperparameters": {
+          "type": "object"
+        },
+        "dataset": {
+          "type": "string"
+        },
+        "metrics": {
+          "type": "object"
+        }
+      }
+    },
+    "reproducibility_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Links to code, data, configs"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published",
+        "archived"
+      ],
+      "default": "draft"
+    }
+  },
+  "required": [
+    "title",
+    "content"
+  ]
+}
