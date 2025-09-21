@@ -1,0 +1,58 @@
+{
+  "name": "AgentConversation",
+  "type": "object",
+  "properties": {
+    "agent_name": {
+      "type": "string",
+      "enum": [
+        "linda",
+        "mike"
+      ],
+      "description": "Agent identifier"
+    },
+    "session_id": {
+      "type": "string",
+      "description": "Conversation session ID"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "user",
+              "assistant"
+            ]
+          },
+          "content": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "type": "string"
+        },
+        "current_task": {
+          "type": "string"
+        },
+        "variables": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "required": [
+    "agent_name",
+    "session_id"
+  ]
+}
